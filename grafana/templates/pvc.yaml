@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     {{- include "grafana.labels" . | nindent 4 }}
-  name: grafana-pv
+  name: grafana-pvc
 spec:
   accessModes: {{ .Values.persistence.accessModes }}
   storageClassName: {{ .Values.persistence.storageClassName }}
