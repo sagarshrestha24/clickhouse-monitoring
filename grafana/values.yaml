@@ -213,15 +213,14 @@ extraContainerVolumes: []
 persistence:
   type: pvc
   enabled: false
-  # storageClassName: default
-  accessModes:
-    - ReadWriteOnce
+  storageClassName: monitor-local-storage
+  accessModes: ReadWriteOnce
   size: 10Gi
   # annotations: {}
   finalizers:
     - kubernetes.io/pvc-protection
   # subPath: ""
-  # existingClaim:
+  existingClaim: grafana-pv
 
 initChownData:
   ## If false, data ownership will not be reset at startup
@@ -535,3 +534,6 @@ sidecar:
 ## Override the deployment namespace
 ##
 namespaceOverride: ""
+
+nodeAffinity:
+   value: k8chvm6.data.int.dc1.ad.net

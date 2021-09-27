@@ -408,7 +408,8 @@ volumes:
 # nothing
 {{- else }}
   - name: storage
-    emptyDir: {}
+    persistentVolumeClaim:
+      claimName: {{ .Values.persistence.existingClaim }}
 {{- end -}}
 {{- if .Values.sidecar.dashboards.enabled }}
   - name: sc-dashboard-volume
