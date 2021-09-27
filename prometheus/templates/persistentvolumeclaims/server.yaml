@@ -10,9 +10,9 @@ metadata:
 spec:
   accessModes:
 {{ toYaml .Values.server.persistentVolume.accessModes | indent 4 }}
-  storageClassName: "{{ .Values.server.persistentVolume.storageClass }}"
+  storageClassName: {{ .Values.server.persistentVolume.storageClass }}
 
   resources:
     requests:
-      storage: "{{ .Values.server.persistentVolume.size }}"
+      storage: {{ .Values.server.persistentVolume.size }}
 

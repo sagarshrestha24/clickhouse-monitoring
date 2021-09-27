@@ -10,9 +10,9 @@ metadata:
 spec:
   accessModes:
 {{ toYaml .Values.pushgateway.persistentVolume.accessModes | indent 4 }}
-  storageClassName: "{{ .Values.pushgateway.persistentVolume.storageClass }}"
+  storageClassName: {{ .Values.pushgateway.persistentVolume.storageClass }}
 
   resources:
     requests:
-      storage: "{{ .Values.pushgateway.persistentVolume.size }}"
+      storage: {{ .Values.pushgateway.persistentVolume.size }}
 

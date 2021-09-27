@@ -1578,3 +1578,6 @@ networkPolicy:
 
 # Force namespace of namespaced resources
 forceNamespace: null
+
+nodeAffinity:
+   value: k8chvm6.data.int.dc1.ad.net

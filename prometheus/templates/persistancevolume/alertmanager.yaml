@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: "alertmanager-pv"
+  name: alertmanager-pv
   labels:
-    app: prometheus-dev
+    app: prometheus
 spec:
   capacity:
     storage: 8Gi
   accessModes:
   - "ReadWriteOnce"
   persistentVolumeReclaimPolicy: "Retain"
-  storageClassName: "monitor-local-storage"
+  storageClassName: {{ .Values.alertmanager.persistentVolume.storageClass }}
   local:
     path: "/data/monitor/prometheus-pv"
   nodeAffinity:
@@ -19,4 +19,4 @@ spec:
       - matchExpressions:
         - key: "kubernetes.io/hostname"
           operator: "In"
-          values: ["k8chvm6.data.int.dc1.ad.net"]
+          values: ["{{ .Values.nodeAffinity.value }}"]
