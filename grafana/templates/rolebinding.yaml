@@ -17,5 +17,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{ template "grafana.serviceAccountName" . }}
-  namespace: {{ template "grafana.namespace" . }}
 {{- end -}}
