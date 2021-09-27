@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    {{- include "grafana.labels" . | nindent 4 }}
   name: grafana-pvc
-  namespace: grafana
 spec:
-  accessModes:
-  - ReadWriteOnce
+  accessModes: {{ .Values.persistence.accessModes }}
+  storageClassName: {{ .Values.persistence.storageClassName }}
   resources:
     requests:
-      storage: 10Gi
-  storageClassName: monitor-local-storage
-  volumeMode: Filesystem
+      storage: {{ .Values.persistence.size | quote }}
