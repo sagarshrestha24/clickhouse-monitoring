@@ -214,7 +214,8 @@ persistence:
   type: pvc
   enabled: false
   storageClassName: monitor-local-storage
-  accessModes: ReadWriteOnce
+  accessModes: 
+     - ReadWriteOnce
   size: 10Gi
   # annotations: {}
   finalizers:
